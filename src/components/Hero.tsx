@@ -28,7 +28,6 @@ function MailIcon() {
 export function Hero() {
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden scan-line">
-      {/* Animated circuit traces */}
       <div className="absolute inset-0 circuit-grid opacity-60" />
       <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-tron-cyan/20 to-transparent" />
       <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-tron-cyan/10 to-transparent" />

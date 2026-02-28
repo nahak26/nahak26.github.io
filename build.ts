@@ -35,7 +35,7 @@ Example:
 
 const toCamelCase = (str: string): string => str.replace(/-([a-z])/g, (_, letter: string) => letter.toUpperCase());
 
-const parseValue = (value: string): any => {
+const parseValue = (value: string): string | number | boolean | string[] => {
   if (value === "true") return true;
   if (value === "false") return false;
 
@@ -160,7 +160,7 @@ const buildTime = (end - start).toFixed(2);
 // Copy resume PDF into output
 const pdfSrc = path.join(process.cwd(), "Kahan_Shah_Resume.pdf");
 if (existsSync(pdfSrc)) {
-  const pdfDest = path.join(outdir as string, "Kahan_Shah_Resume.pdf");
+  const pdfDest = path.join(outdir, "Kahan_Shah_Resume.pdf");
   await Bun.write(pdfDest, Bun.file(pdfSrc));
   console.log(`📄 Copied resume PDF to ${path.relative(process.cwd(), pdfDest)}`);
 }

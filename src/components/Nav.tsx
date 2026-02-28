@@ -22,7 +22,6 @@ export function Nav() {
           {personal.name}
         </a>
 
-        {/* Desktop links */}
         <ul className="hidden md:flex gap-6">
           {sections.map((s) => (
             <li key={s.href}>
@@ -36,7 +35,6 @@ export function Nav() {
           ))}
         </ul>
 
-        {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden flex flex-col gap-1.5 p-1"
@@ -48,7 +46,6 @@ export function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <ul className="md:hidden border-t border-tron-border bg-tron-bg/95 px-6 pb-4">
           {sections.map((s) => (

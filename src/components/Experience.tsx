@@ -10,7 +10,6 @@ export function Experience() {
         <div className="relative border-l border-tron-border ml-3">
           {experience.map((exp) => (
             <div key={`${exp.company}-${exp.role}`} className="relative pl-8 pb-12 last:pb-0">
-              {/* Timeline dot */}
               <div className="absolute -left-[7px] top-1 w-3.5 h-3.5 rounded-full bg-tron-cyan/80 border-2 border-tron-bg pulse-dot" />
 
               <div className="border border-tron-border rounded-lg p-6 bg-tron-card/50 glow-border-hover card-hover">
