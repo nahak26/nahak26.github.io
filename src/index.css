@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tron-bg: #0a0a0f;
+  --color-tron-bg-light: #0d0d1a;
+  --color-tron-card: #111122;
+  --color-tron-cyan: #00d4ff;
+  --color-tron-cyan-dim: #0abdc6;
+  --color-tron-blue: #1e3a5f;
+  --color-tron-blue-deep: #005678;
+  --color-tron-text: #e0e6ed;
+  --color-tron-text-dim: #8892a0;
+  --color-tron-border: #1a1a2e;
+
+  --font-heading: "JetBrains Mono", ui-monospace, monospace;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-tron-bg text-tron-text font-body m-0 min-w-[320px] antialiased;
+  }
+
+  ::selection {
+    background: rgba(0, 212, 255, 0.25);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Circuit grid background */
+.circuit-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glow effects */
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.15);
+}
+
+.glow-border {
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.15), inset 0 0 8px rgba(0, 212, 255, 0.05);
+}
+
+.glow-border-hover {
+  transition: box-shadow 0.3s ease;
+}
+.glow-border-hover:hover {
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.3), inset 0 0 12px rgba(0, 212, 255, 0.08);
+}
+
+.glow-line {
+  box-shadow: 0 1px 0 0 rgba(0, 212, 255, 0.2), 0 2px 8px rgba(0, 212, 255, 0.1);
+}
+
+/* Scan line animation for hero */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scan-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.15), transparent);
+  animation: scan 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Pulse for timeline dots */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(0, 212, 255, 0.4); }
+  50% { box-shadow: 0 0 14px rgba(0, 212, 255, 0.7); }
+}
+
+.pulse-dot {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Subtle hover lift for cards */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion) {
+  *, ::before, ::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
